@@ -1,0 +1,938 @@
+<!--
+  This file was copied from https://boxy-svg.com/menus/default.html
+  Edit it to add, remove and/or rearrange main app menu.
+-->
+
+<x-menuitem>
+  <x-label><strong id="name">Boxy SVG</strong></x-label>
+
+  <x-menu>
+    <x-menuitem value="about">
+      <x-label><x-message href="#about" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="settings">
+      <x-label><x-message href="#settings" autocapitalize ellipsis></x-message></x-label>
+      <x-shortcut value="Control+,"></x-shortcut>
+    </x-menuitem>
+  </x-menu>
+</x-menuitem>
+
+<x-menuitem>
+  <x-label><x-message href="#file" autocapitalize></x-message></x-label>
+
+  <x-menu>
+    <x-menuitem value="new">
+      <x-label><x-message href="#new" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+N"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="open">
+      <x-label><x-message href="#open" ellipsis autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+O"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="save">
+      <x-label><x-message href="#save" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+S"></x-shortcut>
+    </x-menuitem>
+
+    <!--
+    <x-menuitem value="saveAs">
+      <x-label><x-message href="#save-as" ellipsis autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+Shift+S"></x-shortcut>
+    </x-menuitem>
+    -->
+
+    <hr/>
+
+    <x-menuitem value="import">
+      <x-label><x-message href="#import" ellipsis autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="export--verb">
+      <x-label><x-message href="#export--verb" ellipsis autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+E"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="download">
+      <x-label><x-message href="#download" ellipsis autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="print">
+      <x-label><x-message href="#print" ellipsis autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+P"></x-shortcut>
+    </x-menuitem>
+  </x-menu>
+</x-menuitem>
+
+<x-menuitem>
+  <x-label><x-message href="#edit" autocapitalize></x-message></x-label>
+
+  <x-menu>
+    <x-menuitem value="undo">
+      <x-label><x-message href="#undo" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+Z"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="redo">
+      <x-label><x-message href="#redo" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+Shift+Z"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="cut">
+      <x-label><x-message href="#cut" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+X"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="copy">
+      <x-label><x-message href="#copy" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+C"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="copyAsBitmap">
+      <x-label><x-message href="#copy-as-bitmap" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="paste">
+      <x-label><x-message href="#paste" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+V"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="duplicate">
+      <x-label><x-message href="#duplicate" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+D"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="delete">
+      <x-label><x-message href="#delete" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="selectAll">
+      <x-label><x-message href="#select-all" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+A"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="deselectAll">
+      <x-label><x-message href="#deselect-all" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+Shift+A"></x-shortcut>
+    </x-menuitem>
+  </x-menu>
+</x-menuitem>
+
+<x-menuitem>
+  <x-label><x-message href="#view" autocapitalize></x-message></x-label>
+
+  <x-menu>
+    <x-menuitem value="manualGuides">
+      <x-label><x-message href="#manual-guides" autocapitalize></x-message></x-label>
+      <x-shortcut value="F1"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="smartGuides">
+      <x-label><x-message href="#smart-guides" autocapitalize></x-message></x-label>
+      <x-shortcut value="F2"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="grid">
+      <x-label><x-message href="#grid" autocapitalize></x-message></x-label>
+      <x-shortcut value="F3"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="transparency">
+      <x-label><x-message href="#transparency" autocapitalize></x-message></x-label>
+      <x-shortcut value="F4"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="views">
+      <x-label><x-message href="#views" autocapitalize></x-message></x-label>
+      <x-shortcut value="F5"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="rulers">
+      <x-label><x-message href="#rulers" autocapitalize></x-message></x-label>
+      <x-shortcut value="F6"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="zoomIn">
+      <x-label><x-message href="#zoom-in" autocapitalize></x-message></x-label>
+      <x-shortcut value="="></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="zoomOut">
+      <x-label><x-message href="#zoom-out" autocapitalize></x-message></x-label>
+      <x-shortcut value="-"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="resetZoom">
+      <x-label><x-message href="#reset-zoom" autocapitalize></x-message></x-label>
+      <x-shortcut value="`"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="zoomToFitAllViews">
+      <x-label><x-message href="#zoom-to-fit-all-views" autocapitalize></x-message></x-label>
+      <x-shortcut value="1"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="zoomToFitAllObjects">
+      <x-label><x-message href="#zoom-to-fit-all-objects" autocapitalize></x-message></x-label>
+      <x-shortcut value="2"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="zoomToFitSelectedObjects">
+      <x-label><x-message href="#zoom-to-fit-selected-objects" autocapitalize></x-message></x-label>
+      <x-shortcut value="3"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="playAnimations">
+      <x-label><x-message href="#play-animations" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="pauseAnimations">
+      <x-label><x-message href="#pause-animations" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="backwardOneSecond">
+      <x-label><x-message href="#backward-1-second" autocapitalize></x-message></x-label>
+      <x-shortcut value="Alt+ArrowLeft"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="forwardOneSecond">
+      <x-label><x-message href="#forward-1-second" autocapitalize></x-message></x-label>
+      <x-shortcut value="Alt+ArrowRight"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="jumpToStart">
+      <x-label><x-message href="#jump-to-start" autocapitalize></x-message></x-label>
+      <x-shortcut value="Alt+Shift+ArrowLeft"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="jumpToEnd">
+      <x-label><x-message href="#jump-to-end" autocapitalize></x-message></x-label>
+      <x-shortcut value="Alt+Shift+ArrowRight"></x-shortcut>
+    </x-menuitem>
+  </x-menu>
+</x-menuitem>
+
+<x-menuitem>
+  <x-label><x-message href="#object" autocapitalize></x-message></x-label>
+
+  <x-menu>
+    <x-menuitem value="group">
+      <x-label><x-message href="#group--verb" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+G"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="ungroup">
+      <x-label><x-message href="#ungroup" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+Shift+G"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="lock">
+      <x-label><x-message href="#lock" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="unlock">
+      <x-label><x-message href="#unlock" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="unlockAll">
+      <x-label><x-message href="#unlock-all" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="hide">
+      <x-label><x-message href="#hide" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="unhide">
+      <x-label><x-message href="#unhide" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="unhideAll">
+      <x-label><x-message href="#unhide-all" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="clip">
+      <x-label><x-message href="#clip" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="unclip">
+      <x-label><x-message href="#unclip" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="mask">
+      <x-label><x-message href="#mask" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="unmask">
+      <x-label><x-message href="#unmask" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem>
+      <x-label><x-message href="#opacity" autocapitalize></x-message></x-label>
+      <x-menu>
+        <x-menuitem value="increaseOpacity">
+          <x-label><x-message href="#increase" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+="></x-shortcut>
+        </x-menuitem>
+
+        <x-menuitem value="decreaseOpacity">
+          <x-label><x-message href="#decrease" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+-"></x-shortcut>
+        </x-menuitem>
+      </x-menu>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="raise">
+      <x-label><x-message href="#order.raise" autocapitalize></x-message></x-label>
+      <x-shortcut value="]"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="lower">
+      <x-label><x-message href="#order.lower" autocapitalize></x-message></x-label>
+      <x-shortcut value="["></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="raiseToFront">
+      <x-label><x-message href="#order.raise-to-front" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+]"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="lowerToBack">
+      <x-label><x-message href="#order.lower-to-back" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+["></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem>
+      <x-label><x-message href="#align-to-view" autocapitalize></x-message></x-label>
+      <x-menu>
+        <x-menuitem value="alignLeftToView">
+          <x-label><x-message href="#position.left" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+ArrowLeft"></x-shortcut>
+        </x-menuitem>
+
+        <x-menuitem value="alignRightToView">
+          <x-label><x-message href="#position.right" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+ArrowRight"></x-shortcut>
+        </x-menuitem>
+
+
+        <x-menuitem value="alignTopToView">
+          <x-label><x-message href="#position.top" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+ArrowUp"></x-shortcut>
+        </x-menuitem>
+
+        <x-menuitem value="alignBottomToView">
+          <x-label><x-message href="#position.bottom" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+ArrowDown"></x-shortcut>
+        </x-menuitem>
+
+        <hr/>
+
+        <x-menuitem value="centerToView">
+          <x-label><x-message href="#center" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="centerHorizontallyToView">
+          <x-label><x-message href="#center-horizontally" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="centerVerticallyToView">
+          <x-label><x-message href="#center-vertically" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <hr/>
+
+        <x-menuitem value="stretchToView">
+          <x-label><x-message href="#stretch" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="stretchHorizontallyToView">
+          <x-label><x-message href="#stretch-horizontally" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="stretchVerticallyToView">
+          <x-label><x-message href="#stretch-vertically" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <hr/>
+
+        <x-menuitem value="fitToView">
+          <x-label><x-message href="#fit" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="fitHorizontallyToView">
+          <x-label><x-message href="#fit-horizontally" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="fitVerticallyToView">
+          <x-label><x-message href="#fit-vertically" autocapitalize></x-message></x-label>
+        </x-menuitem>
+      </x-menu>
+    </x-menuitem>
+
+    <x-menuitem>
+      <x-label><x-message href="#align-to-first-selected" autocapitalize></x-message></x-label>
+      <x-menu>
+        <x-menuitem value="alignLeftToFirstSelected">
+          <x-label><x-message href="#position.left" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+Shift+ArrowLeft"></x-shortcut>
+        </x-menuitem>
+
+        <x-menuitem value="alignRightToFirstSelected">
+          <x-label><x-message href="#position.right" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+Shift+ArrowRight"></x-shortcut>
+        </x-menuitem>
+
+
+        <x-menuitem value="alignTopToFirstSelected">
+          <x-label><x-message href="#position.top" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+Shift+ArrowUp"></x-shortcut>
+        </x-menuitem>
+
+        <x-menuitem value="alignBottomToFirstSelected">
+          <x-label><x-message href="#position.bottom" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+Shift+ArrowDown"></x-shortcut>
+        </x-menuitem>
+
+        <hr/>
+
+        <x-menuitem value="centerToFirstSelected">
+          <x-label><x-message href="#center" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="centerHorizontallyToFirstSelected">
+          <x-label><x-message href="#center-horizontally" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="centerVerticallyToFirstSelected">
+          <x-label><x-message href="#center-vertically" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <hr/>
+
+        <x-menuitem value="stretchToFirstSelected">
+          <x-label><x-message href="#stretch" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="stretchHorizontallyToFirstSelected">
+          <x-label><x-message href="#stretch-horizontally" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="stretchVerticallyToFirstSelected">
+          <x-label><x-message href="#stretch-vertically" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <hr/>
+
+        <x-menuitem value="fitToFirstSelected">
+          <x-label><x-message href="#fit" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="fitHorizontallyToFirstSelected">
+          <x-label><x-message href="#fit-horizontally" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="fitVerticallyToFirstSelected">
+          <x-label><x-message href="#fit-vertically" autocapitalize></x-message></x-label>
+        </x-menuitem>
+      </x-menu>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="rotateClockwise">
+      <x-label><x-message href="#rotate-clockwise" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="rotateCounterclockwise">
+      <x-label><x-message href="#rotate-counterclockwise" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="flipX">
+      <x-label><x-message href="#flip-x" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="flipY">
+      <x-label><x-message href="#flip-y" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="removeTransform">
+      <x-label><x-message href="#remove-transform" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="reduceTransform">
+      <x-label><x-message href="#reduce-transform" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="rasterize">
+      <x-label><x-message href="#rasterize" autocapitalize></x-message></x-label>
+    </x-menuitem>
+  </x-menu>
+</x-menuitem>
+
+<x-menuitem>
+  <x-label><x-message href="#shape" autocapitalize></x-message></x-label>
+
+  <x-menu>
+    <x-menuitem value="grabPaintColor">
+      <x-label><x-message href="#grab-paint-color" autocapitalize></x-message></x-label>
+      <x-shortcut value="Q"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem>
+      <x-label><x-message href="#fill-opacity" autocapitalize></x-message></x-label>
+      <x-menu>
+        <x-menuitem value="increaseFillOpacity">
+          <x-label><x-message href="#increase" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="decreaseFillOpacity">
+          <x-label><x-message href="#decrease" autocapitalize></x-message></x-label>
+        </x-menuitem>
+      </x-menu>
+    </x-menuitem>
+
+    <x-menuitem>
+      <x-label><x-message href="#stroke-opacity" autocapitalize></x-message></x-label>
+      <x-menu>
+        <x-menuitem value="increaseStrokeOpacity">
+          <x-label><x-message href="#increase" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="decreaseStrokeOpacity">
+          <x-label><x-message href="#decrease" autocapitalize></x-message></x-label>
+        </x-menuitem>
+      </x-menu>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="reorient">
+      <x-label><x-message href="#reorient" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="reverse">
+      <x-label><x-message href="#reverse" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="unite">
+      <x-label><x-message href="#boolean-operations.unite" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="subtract">
+      <x-label><x-message href="#boolean-operations.subtract" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="intersect">
+      <x-label><x-message href="#boolean-operations.intersect" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="exclude">
+      <x-label><x-message href="#boolean-operations.exclude" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="shapeToPath">
+      <x-label><x-message href="#shape-to-path" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="strokeToPath">
+      <x-label><x-message href="#stroke-to-path" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="joinPaths">
+      <x-label><x-message href="#join-paths" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="splitPath">
+      <x-label><x-message href="#split-paths" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="openPath">
+      <x-label><x-message href="#open-path" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="closePath">
+      <x-label><x-message href="#close-path" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="insetPath">
+      <x-label><x-message href="#inset-path" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="outsetPath">
+      <x-label><x-message href="#outset-path" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="simplifyPath">
+      <x-label><x-message href="#simplify-path" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="complexifyPath">
+      <x-label><x-message href="#complexify-path" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="joinNodes">
+      <x-label><x-message href="#join-nodes" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="splitNode">
+      <x-label><x-message href="#split-nodes" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="deleteNode">
+      <x-label><x-message href="#delete-nodes" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="breakNode">
+      <x-label><x-message href="#break-nodes" autocapitalize></x-message></x-label>
+    </x-menuitem>
+  </x-menu>
+</x-menuitem>
+
+<x-menuitem>
+  <x-label><x-message href="#text" autocapitalize></x-message></x-label>
+
+  <x-menu>
+    <x-menuitem value="bold">
+      <x-label><x-message href="#bold" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+B"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="italic">
+      <x-label><x-message href="#italic" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+I"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem>
+      <x-label><x-message href="#font-size" autocapitalize></x-message></x-label>
+      <x-menu>
+        <x-menuitem value="increaseFontSize">
+          <x-label><x-message href="#increase" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+Shift+="></x-shortcut>
+        </x-menuitem>
+
+        <x-menuitem value="decreaseFontSize">
+          <x-label><x-message href="#decrease" autocapitalize></x-message></x-label>
+          <x-shortcut value="Control+Shift+-"></x-shortcut>
+        </x-menuitem>
+      </x-menu>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="underline">
+      <x-label><x-message href="#text-decoration.underline" autocapitalize></x-message></x-label>
+      <x-shortcut value="Control+U"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="lineThrough">
+      <x-label><x-message href="#text-decoration.line-through" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="overline">
+      <x-label><x-message href="#text-decoration.overline" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="capitalize">
+      <x-label><x-message href="#text-transform.capitalize" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="uppercase">
+      <x-label><x-message href="#text-transform.uppercase" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <x-menuitem value="lowercase">
+      <x-label><x-message href="#text-transform.lowercase" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem>
+      <x-label><x-message href="#letter-spacing" autocapitalize></x-message></x-label>
+      <x-menu>
+        <x-menuitem value="increaseLetterSpacing">
+          <x-label><x-message href="#increase" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="decreaseLetterSpacing">
+          <x-label><x-message href="#decrease" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <hr/>
+
+        <x-menuitem value="resetLetterSpacing">
+          <x-label><x-message href="#reset" autocapitalize></x-message></x-label>
+        </x-menuitem>
+      </x-menu>
+    </x-menuitem>
+
+    <x-menuitem>
+      <x-label><x-message href="#word-spacing" autocapitalize></x-message></x-label>
+      <x-menu>
+        <x-menuitem value="increaseWordSpacing">
+          <x-label><x-message href="#increase" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="decreaseWordSpacing">
+          <x-label><x-message href="#decrease" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <hr/>
+
+        <x-menuitem value="resetWordSpacing">
+          <x-label><x-message href="#reset" autocapitalize></x-message></x-label>
+        </x-menuitem>
+      </x-menu>
+    </x-menuitem>
+
+    <x-menuitem>
+      <x-label><x-message href="#line-spacing" autocapitalize></x-message></x-label>
+      <x-menu>
+        <x-menuitem value="increaseLineSpacing">
+          <x-label><x-message href="#increase" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <x-menuitem value="decreaseLineSpacing">
+          <x-label><x-message href="#decrease" autocapitalize></x-message></x-label>
+        </x-menuitem>
+
+        <hr/>
+
+        <x-menuitem value="resetLineSpacing">
+          <x-label><x-message href="#reset" autocapitalize></x-message></x-label>
+        </x-menuitem>
+      </x-menu>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="textOnPath">
+      <x-label><x-message href="#text-on-path" autocapitalize></x-message></x-label>
+    </x-menuitem>
+  </x-menu>
+</x-menuitem>
+
+<x-menuitem>
+  <x-label><x-message href="#tool" autocapitalize></x-message></x-label>
+
+  <x-menu>
+    <x-menuitem value="previousTool">
+      <x-label><x-message href="#previous-tool" autocapitalize></x-message></x-label>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="transformTool">
+      <x-label><x-message href="#transform" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+T"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="editTool">
+      <x-label><x-message href="#edit" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+E"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="panTool">
+      <x-label><x-message href="#pan" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+P"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="splineTool">
+      <x-label><x-message href="#spline" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+S"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="freehandTool">
+      <x-label><x-message href="#freehand" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+F"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="blobTool">
+      <x-label><x-message href="#blob" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+B"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="rectTool">
+      <x-label><x-message href="#rectangle" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+R"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="ellipseTool">
+      <x-label><x-message href="#ellipse" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+C"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="otherShapeTool">
+      <x-label><x-message href="#other-shape" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+O"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="textTool">
+      <x-label><x-message href="#text" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+Z"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="textPathTool">
+      <x-label><x-message href="#text-path" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+X"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="viewTool">
+      <x-label><x-message href="#view" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+V"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="manualGuideTool">
+      <x-label><x-message href="#manual-guide" autocapitalize></x-message></x-label>
+      <x-shortcut value="Shift+G"></x-shortcut>
+    </x-menuitem>
+  </x-menu>
+</x-menuitem>
+
+<x-menuitem>
+  <x-label><x-message href="#window" autocapitalize></x-message></x-label>
+
+  <x-menu>
+    <x-menuitem value="commandsPanel">
+      <x-label><x-message href="#commands" autocapitalize></x-message></x-label>
+      <x-shortcut value="/"></x-shortcut>
+    </x-menuitem>
+
+    <hr/>
+
+    <x-menuitem value="fillPanel">
+      <x-label><x-message href="#fill" autocapitalize></x-message></x-label>
+      <x-shortcut value="F"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="strokePanel">
+      <x-label><x-message href="#stroke" autocapitalize></x-message></x-label>
+      <x-shortcut value="S"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="compositingPanel">
+      <x-label><x-message href="#compositing" autocapitalize></x-message></x-label>
+      <x-shortcut value="C"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="typographyPanel">
+      <x-label><x-message href="#typography" autocapitalize></x-message></x-label>
+      <x-shortcut value="T"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="geometryPanel">
+      <x-label><x-message href="#geometry" autocapitalize></x-message></x-label>
+      <x-shortcut value="G"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="metaPanel">
+      <x-label><x-message href="#meta" autocapitalize></x-message></x-label>
+      <x-shortcut value="M"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="shapePanel">
+      <x-label><x-message href="#shape" autocapitalize></x-message></x-label>
+      <x-shortcut value="X"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="arrangementPanel">
+      <x-label><x-message href="#arrangement" autocapitalize></x-message></x-label>
+      <x-shortcut value="A"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="objectsPanel">
+      <x-label><x-message href="#objects" autocapitalize></x-message></x-label>
+      <x-shortcut value="O"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="defsPanel">
+      <x-label><x-message href="#defs" autocapitalize></x-message></x-label>
+      <x-shortcut value="D"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="libraryPanel">
+      <x-label><x-message href="#library" autocapitalize></x-message></x-label>
+      <x-shortcut value="L"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="generatorsPanel">
+      <x-label><x-message href="#generators" autocapitalize></x-message></x-label>
+      <x-shortcut value="Z"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="exportPanel">
+      <x-label><x-message href="#export" autocapitalize></x-message></x-label>
+      <x-shortcut value="E"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="historyPanel">
+      <x-label><x-message href="#history" autocapitalize></x-message></x-label>
+      <x-shortcut value="H"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="elementsPanel">
+      <x-label><x-message href="#elements" autocapitalize></x-message></x-label>
+      <x-shortcut value="I"></x-shortcut>
+    </x-menuitem>
+
+    <x-menuitem value="animationsPanel">
+      <x-label><x-message href="#animations" autocapitalize></x-message></x-label>
+      <x-shortcut value="V"></x-shortcut>
+    </x-menuitem>
+  </x-menu>
+</x-menuitem>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Floor plan editor</title>
+    <meta name="viewport" content="width=device-width">
+    <script src="https://boxy-svg.com/embed.js" async></script>
+
+    <script>
+      window.addEventListener("load", async () => {
+        await customElements.whenDefined("boxy-svg");
+
+        let editor = document.querySelector("#editor");
+
+        // Basic configuration (public API)
+        {
+          editor.name = "Floor Plan Designer";
+          editor.logo = "/floor-plan-editor/logo.svg";
+          editor.accent = "#3c32fe";
+          editor.tools = ["transform", "edit", "pan", "rect", "text", "view"];
+          editor.panels = ["fill", "stroke", "typography", "geometry", "export", "history"];
+          editor.theme = "/floor-plan-editor/fluent.css";
+          editor.menu = "/floor-plan-editor/menu.html";
+        }
+
+        // Advanced configuration (private API)
+        {
+          // Make the "Text" tool behave like in Figma and Canva, i.e. finish editing the text when user clicks
+          // the empty space or another non-text object
+          editor.setConfig("bx-textsettings:drawingMode", "simple");
+
+          // Change the default text content of newly created text objects
+          if (editor.getConfig("bx-textsettings:content") === null) {
+            editor.setConfig("bx-textsettings:content", "Label");
+          }
+
+          // Change the default style of newly created text objects
+          if (editor.getConfig("bx-textsettings:style") === null) {
+            editor.setConfig("bx-textsettings:style", {
+              "fill": "#000",
+              "font-family": "Arial",
+              "font-size": "13px",
+              "font-weight": "700"
+            });
+          }
+
+          // Show transparency by default
+          if (editor.getConfig("bx-board:showTransparency") === null) {
+            editor.setConfig("bx-board:showTransparency", true);
+          }
+        }
+
+        // Load a sample floor plan
+        editor.src = "/floor-plan-editor/floor-1.svg";
+
+        // Override the "save" command
+        {
+          editor.addEventListener("command", async (event) => {
+            let command = event.detail;
+
+            if (command === "save") {
+              // Prevent the native file save dialog from opening
+              event.preventDefault();
+
+              // Extract the edited SVG document
+              let svg = await editor.getSVG();
+
+              // Write the extracted SVG document to the database
+              console.log("@todo: write SVG to database");
+            }
+          });
+        }
+      });
+    </script>
+</head>
+<body>
+  <boxy-svg id="editor"></boxy-svg>
+</body>
+</html>
