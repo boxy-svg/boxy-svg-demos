@@ -53,7 +53,7 @@
         // Load a sample floor plan
         editor.src = "/boxy-svg-demos/floor-plan-editor/floor-1.svg";
 
-        // Override the "save" command
+        // Override "save" and "import" commands
         {
           editor.addEventListener("command", async (event) => {
             let command = event.detail;
@@ -67,6 +67,37 @@
 
               // Write the extracted SVG document to the database
               console.log("@todo: write SVG to database");
+            }
+
+            else if (command === "import") {
+              event.preventDefault();
+
+              // Ask user to choose an image file from disk
+              let file = await new Promise((resolve) => {
+                let input = html`<input type="file" accept=".svg,.png,.jpg,.jpeg,.webp,.gif"/>`;
+                input.click();
+                input.addEventListener("change", (event) => { resolve(event.target.files[0] || null) }, {once: true});
+              });
+
+              // Read the image file as "data:" URL
+              let dataURL = await new Promise((resolve) => {
+                let reader  = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onloadend = () => resolve(reader.result);
+              });
+
+              // Determine the image size
+              let {width, height} = await new Promise((resolve) => {
+                let image = new Image();
+                image.onload = () => resolve({width: image.naturalWidth, height: image.naturalHeight});
+                image.src = dataURL;
+              });
+
+              // Finally insert the image into the currently edited SVG document.
+              // Notice that we set "pointer-events" to "all" to make it selectable.
+              editor.insertSVG(
+                `<image width="${width}" height="${height}" href="${dataURL}" style="pointer-events: all;"></image>`
+              );
             }
           });
         }
