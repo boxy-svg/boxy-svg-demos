@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Floor plan editor</title>
     <meta name="viewport" content="width=device-width">
-    <script src="https://boxy-svg.com/embed.js" async></script>
+    <script src="https://boxy-svg.com/embed.js" type="module" async></script>
 
     <script>
       window.addEventListener("load", async () => {
@@ -74,7 +74,9 @@
 
               // Ask user to choose an image file from disk
               let file = await new Promise((resolve) => {
-                let input = html`<input type="file" accept=".svg,.png,.jpg,.jpeg,.webp,.gif"/>`;
+                let input = document.createElement("input");
+                input.setAttribute("type", "file");
+                input.setAttribute("accept", ".svg,.png,.jpg,.jpeg,.webp,.gif");
                 input.click();
                 input.addEventListener("change", (event) => { resolve(event.target.files[0] || null) }, {once: true});
               });
