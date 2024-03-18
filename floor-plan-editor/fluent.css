@@ -1,11 +1,6 @@
 
 @import url("https://boxy-svg.com/themes/fluent.css");
 
-/* Prevent non-text objects from being selected */
-[data-bx-workspace] *:not(text,tspan) {
-  pointer-events: none;
-}
-
 /* Hide "Stroke Panel -> Miter limit" */
 :host-context(bx-strokepanel) #miter-limit-subsection {
   display: none;

@@ -51,7 +51,22 @@
         }
 
         // Load a sample floor plan
-        editor.src = "/boxy-svg-demos/floor-plan-editor/floor-1.svg";
+        {
+          let svg = await (await fetch("/boxy-svg-demos/floor-plan-editor/floor-1.svg")).text();
+
+          // Lock elements that should not be selectable / editable
+          {
+            let svgElement = new DOMParser().parseFromString(svg, "text/html").querySelector("svg");
+
+            for (let element of svgElement.querySelectorAll("path,line,polyline,polygon,rect,circle,ellipse")) {
+              element.style.setProperty("pointer-events", "none");
+            }
+
+            svg = new XMLSerializer().serializeToString(svgElement);
+          }
+
+          editor.setSVG(svg);
+        }
 
         // Override "save" and "import" commands
         {
