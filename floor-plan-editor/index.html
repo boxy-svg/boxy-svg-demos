@@ -44,6 +44,11 @@
             });
           }
 
+          // Automatically update the default text style when user changes the style of existing text objects
+          if (editor.getConfig("bx-textsettings:autoUpdateStyle") === null) {
+            editor.setConfig("bx-textsettings:autoUpdateStyle", true);
+          }
+
           // Show transparency by default
           if (editor.getConfig("bx-board:showTransparency") === null) {
             editor.setConfig("bx-board:showTransparency", true);
@@ -68,7 +73,7 @@
           editor.setSVG(svg);
         }
 
-        // Override "save" and "import" commands
+        // Override "save", "import" and "export" commands
         {
           editor.addEventListener("command", async (event) => {
             let command = event.detail;
@@ -115,6 +120,34 @@
               editor.insertSVG(
                 `<image width="${width}" height="${height}" href="${dataURL}" style="pointer-events: all;"></image>`
               );
+            }
+
+            else if (command === "export") {
+              event.preventDefault();
+
+              let [pngBlob, pdfBlob] = await editor.export([
+                {
+                  format: "png",
+                  area: "view",
+                  width: 500,
+                  background: "#ffffff"
+                },
+                {
+                  format: "pdf",
+                  pages: [
+                    {
+                      area: "view",
+                      width: 10,
+                      height: "auto",
+                      units: "cm",
+                      background: "#ffffff"
+                    }
+                  ]
+                }
+              ]);
+
+              console.log("Exported PNG:", URL.createObjectURL(pngBlob));
+              console.log("Exported PDF:", URL.createObjectURL(pdfBlob));
             }
           });
         }
