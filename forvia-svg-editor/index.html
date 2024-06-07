@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>Forvia SVG editor</title>
+      <meta name="viewport" content="width=device-width">
+      <script src="https://boxy-svg.com/embed.js" type="module" async></script>
+
+      <style>
+        dialog {
+          width: calc(100% - 50px);
+          height: calc(100% - 50px);
+          padding: 0;
+          flex-flow: column;
+        }
+        dialog[open] {
+          display: flex;
+        }
+        dialog::backdrop {
+          background: rgb(0 0 0 / 33%);
+        }
+
+        button {
+          width: 150px;
+          height: 30px;
+          border: none;
+          font-weight: 700;
+          cursor: pointer;
+        }
+
+        #new-button {
+          background: green;
+          color: white;
+        }
+
+        /**
+         *  Gallery
+         */
+
+        #gallery {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 10px;
+        }
+
+        #gallery .item {
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+          border: 1px solid blue;
+        }
+
+        #gallery img {
+          width: 100px;
+          height: 100px;
+        }
+
+        #gallery button {
+          color: white;
+          background: #e5b523;
+        }
+
+        /**
+         * Editor dialog
+         */
+
+        #editor-buttons {
+          display: flex;
+          flex-flow: row;
+          justify-content: end;
+        }
+
+        #cancel-button {
+          margin: 7px;
+        }
+
+        #save-button {
+          margin: 7px;
+          background: green;
+          color: white;
+        }
+
+        #editor {
+          width: 100%;
+          height: 100%;
+          border: none;
+          border-top: 1px solid black;
+        }
+      </style>
+
+      <script>
+        // Fake database for demo purposes
+        let database = {
+          get(id) {
+            return localStorage.getItem("image:" + id);
+          },
+          getAll() {
+            return Object.keys(localStorage).filter(key => key.startsWith("image:"))
+                                            .map(key => [key.split(":")[1], localStorage.getItem(key)]);
+          },
+          set(id, data) {
+            localStorage.setItem("image:" + id, data);
+          },
+          has(id) {
+            return localStorage["image:" + id] !== undefined;
+          }
+        };
+
+        // Populate the database with two sample SVG images
+        {
+          if (database.has("arrow") === false) {
+            database.set("arrow", `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M 51 8 L 44 15 L 74 45 L 8 45 L 8 56 L 74 56 L 44 86 L 51 93 L 93 51 L 51 8 Z"></path></svg>`);
+          }
+          if (database.has("battery") === false) {
+            database.set("battery", `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M 72 16 L 72 93 L 28 93 L 28 16 L 42 16 L 42 8 L 58 8 L 58 16 L 72 16 Z M 63 25 L 37 25 L 37 41 L 63 41 L 63 25 Z" style=""></path></svg>`);
+          }
+        }
+
+        let refreshGallery = () => {
+          let gallery = document.querySelector("#gallery");
+          let innerHTML = "";
+
+          for (let [id, imageSVG] of database.getAll()) {
+            let blob = new Blob([imageSVG], { type: "image/svg+xml" });
+            let blobURL = URL.createObjectURL(blob);
+
+            innerHTML += `
+              <div class="item" data-id="${id}">
+                <img src="${blobURL}"/>
+                <button class="edit-button">Edit</button>
+              </div>
+            `;
+          }
+
+          gallery.innerHTML = innerHTML;
+        };
+
+        window.addEventListener("load", async () => {
+          await customElements.whenDefined("boxy-svg");
+
+          let editor = document.querySelector("#editor");
+
+          // Basic configuration (public API)
+          {
+            editor.name = "Forvia SVG Editor";
+            editor.logo = "/boxy-svg-demos/forvia-svg-editor/logo.svg";
+            editor.accent = "#0024d3";
+            editor.tools = ["transform", "edit", "pan", "spline", "freehand", "blob", "rect", "ellipse", "other-shape", "text", "text-path", "view", "manual-guide"];
+            editor.panels = ["fill", "stroke", "compositing", "typography", "geometry", "meta", "shape", "arrangement", "objects", "defs", "library", "generators", "export", "history" /*, "elements", "animations" */];
+            editor.theme = "/boxy-svg-demos/forvia-svg-editor/fluent.css";
+            editor.menu = "/boxy-svg-demos/forvia-svg-editor/menu.html";
+          }
+
+          // Advanced configuration (private API)
+          {
+            // Change the default style of newly created text objects
+            if (editor.getConfig("bx-textsettings:style") === null) {
+              editor.setConfig("bx-textsettings:style", {
+                "fill": "#000",
+                "font-family": "Arial",
+                "font-size": "13px",
+                "font-weight": "700"
+              });
+            }
+
+            // Show transparency by default
+            if (editor.getConfig("bx-board:showTransparency") === null) {
+              editor.setConfig("bx-board:showTransparency", true);
+            }
+          }
+
+          // Add event handlers
+          {
+            let newButton = document.querySelector("#new-button");
+            let saveButton = document.querySelector("#save-button");
+            let cancelButton = document.querySelector("#cancel-button");
+            let editorDialog = document.querySelector("#editor-dialog");
+
+            let imageID = null;
+
+            newButton.addEventListener("click", () => {
+              imageID = null;
+              editorDialog.showModal();
+              editor.setSVG(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"></svg>`);
+            });
+
+            saveButton.addEventListener("click", async () => {
+              if (imageID === null) {
+                imageID = Math.random().toString(36).slice(-5); // Random ID
+              }
+
+              let imageSVG = await editor.getSVG();
+              database.set(imageID, imageSVG);
+              window.alert("SVG file was saved to database");
+              editorDialog.close();
+              refreshGallery();
+            });
+
+            cancelButton.addEventListener("click", () => {
+              editorDialog.close();
+              refreshGallery();
+            });
+
+            gallery.addEventListener("click", (event) => {
+              let editButton = event.target.closest(".edit-button");
+
+              if (editButton) {
+                editorDialog.showModal();
+
+                imageID = editButton.closest(".item").getAttribute("data-id");
+                let imageSVG = database.get(imageID);
+                editor.setSVG(imageSVG);
+              }
+            });
+
+            editor.addEventListener("command", async (event) => {
+              let command = event.detail;
+
+              // Override the "save" editor command (triggered by "File -> Save" menu item and Ctrl+S shortcut)
+              if (command === "save") {
+                if (imageID === null) {
+                  imageID = Math.random().toString(36).slice(-5); // Random ID
+                }
+
+                event.preventDefault();
+                let imageSVG = await editor.getSVG();
+                database.set(imageID, imageSVG);
+              }
+            });
+          }
+
+          refreshGallery();
+        });
+      </script>
+  </head>
+  <body>
+    <button id="new-button">New image</button>
+
+    <dialog id="editor-dialog">
+      <div id="editor-buttons">
+        <button id="cancel-button">Cancel</button>
+        <button id="save-button">Save</button>
+      </div>
+
+      <boxy-svg id="editor"></boxy-svg>
+    </dialog>
+
+    <div id="gallery"></div>
+  </body>
+</html>

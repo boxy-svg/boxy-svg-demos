@@ -1,0 +1,18 @@
+
+@import url("https://boxy-svg.com/themes/fluent.css");
+
+/* Hide "Stroke Panel -> Miter limit" */
+:host-context(bx-strokepanel) #miter-limit-subsection {
+  display: none;
+}
+
+/* Hide "Typography Panel -> Path" */
+:host-context(bx-typographypanel) #path-section,
+:host-context(bx-typographypanel) #path-section + hr {
+  display: none;
+}
+
+/* Hide "Geometry Panel -> Rotation */
+:host-context([extends="bx-geometryinspector"]) #rotation-section {
+  display: none;
+}
