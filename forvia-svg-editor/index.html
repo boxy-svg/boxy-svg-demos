@@ -243,7 +243,8 @@
         <button id="save-button">Save</button>
       </div>
 
-      <boxy-svg id="editor"></boxy-svg>
+      <!-- Safari might block communication with the editor inside <dialog> unless we lazy-load it -->
+      <boxy-svg id="editor" loading="lazy"></boxy-svg>
     </dialog>
 
     <div id="gallery"></div>
