@@ -18,7 +18,7 @@
 }
 
 /* Hide all libraries except the Forvia parts library */
-:host(bx-librarypanel) #header x-button:not([value="vectors"]),
+:host(bx-librarypanel) #header #buttons,
 :host(bx-vectorslibrarybrowser) #library-menu > *:not([value="forvia-parts"]) {
   display: none;
 }
