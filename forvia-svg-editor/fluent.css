@@ -16,3 +16,9 @@
 :host-context([extends="bx-geometryinspector"]) #rotation-section {
   display: none;
 }
+
+/* Hide all libraries except the Forvia parts library */
+:host(bx-librarypanel) #header x-button:not([value="vectors"]),
+:host(bx-vectorslibrarybrowser) #library-menu > *:not([value="forvia-parts"]) {
+  display: none;
+}
