@@ -232,6 +232,10 @@
                 });
               }
             });
+
+            // When user opens the "Library" panel, show the custom library be default
+            editor.setConfig("bx-librarypanel:currentCategoryID", "vectors");
+            editor.setConfig("bx-vectorslibrarybrowser:provider", "forvia-parts");
           }
 
           // Add event handlers
