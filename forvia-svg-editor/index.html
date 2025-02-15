@@ -205,7 +205,7 @@
             });
 
             editor.addLibrary({
-              // To prevent any naming clashes you should prefix your library ID with "forvia-"
+              // To prevent any naming clashes you should prefix your library ID
               id: "forvia-parts",
               // Currently "vectors" is the only supported type ("colors", "gradients", "fonts", "bitmaps" will be added
               // in future)
@@ -232,10 +232,6 @@
                 });
               }
             });
-
-            // When user opens the "Library" panel, show the custom library be default
-            editor.setConfig("bx-librarypanel:currentCategoryID", "vectors");
-            editor.setConfig("bx-vectorslibrarybrowser:provider", "forvia-parts");
           }
 
           // Add event handlers
