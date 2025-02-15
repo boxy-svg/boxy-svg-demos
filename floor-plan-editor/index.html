@@ -128,7 +128,7 @@
               let [pngBlob, pdfBlob] = await editor.export([
                 {
                   format: "png",
-                  area: "view",
+                  href: ":root",
                   width: 500,
                   background: "#ffffff"
                 },
@@ -136,7 +136,7 @@
                   format: "pdf",
                   pages: [
                     {
-                      area: "view",
+                      href: ":root",
                       width: 10,
                       height: "auto",
                       units: "cm",
